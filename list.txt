@@ -1,0 +1,7 @@
+☆配列aをn番目の要素でソート
+a=sorted(a,key=lambda x:x[n])
+
+
+☆配列の偶数番目・奇数番目を取得
+print(a[0::2])
+print(a[1::2])
