@@ -1,5 +1,5 @@
 import math
-inf=999
+inf=10**9
 def segtree(a): #RMQ(Range Minimum Query)
     #bi=高さ　bi2=最下段の個数
     global bi 
@@ -18,11 +18,13 @@ def segtree(a): #RMQ(Range Minimum Query)
 def seg_update(loc,val): #locの値をvalueに更新
     loc+=bi2-1
     seg[loc]=val
-    for i in range(bi):
+    while True:
         seg[loc]=min(val,seg[loc])
+        if loc==0:
+            break
         loc=(loc-1)//2
 
-def seg_find(l,r,tmp): #[l,r)の最小値を求める、tmpには0入れといて
+def seg_find(l,r,tmp=0): #[l,r)の最小値を求める
     a=bi-math.ceil(math.log2(tmp+2))+1
     nl=2**(a-1)*(tmp-(2**(bi-a))+1)
     nr=nl+2**(a-1)
@@ -32,8 +34,9 @@ def seg_find(l,r,tmp): #[l,r)の最小値を求める、tmpには0入れとい�
         return seg[tmp]
     else:
         return min(seg_find(l,r,tmp*2+1),seg_find(l,r,tmp*2+2))
-global seg
+
 seg=segtree([5,4,3,6,1])
-for i in range(7):
-    print(seg_find(0,i+1,0))
 print(seg)
+seg_update(1,0)
+print(seg)
+print(seg_find(0,3))
