@@ -4,4 +4,3 @@ def Csum(a):
         c+=a[i]
         b.append(c)
     return b
-        
