@@ -3,7 +3,7 @@ inf=10**9
 def segtree(a): #RMQ(Range Minimum Query)
     #bi=高さ　bi2=最下段の個数
     global bi 
-    bi=math.ceil(math.log2(len(a)))+1
+    bi=(len(a)-1).bit_length()+1
     global bi2
     bi2=2**(bi-1)
     seg=[inf]*(2*bi2-1)
