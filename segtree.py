@@ -1,4 +1,3 @@
-import math
 inf=10**9
 def segtree(a): #RMQ(Range Minimum Query)
     #bi=高さ　bi2=最下段の個数
@@ -25,7 +24,7 @@ def seg_update(loc,val): #locの値をvalueに更新
         loc=(loc-1)//2
 
 def seg_find(l,r,tmp=0): #[l,r)の最小値を求める
-    a=bi-math.ceil(math.log2(tmp+2))+1
+    a=bi-(tmp+1).bit_length()+1
     nl=2**(a-1)*(tmp-(2**(bi-a))+1)
     nr=nl+2**(a-1)
     if nr<=l or nl>=r:
