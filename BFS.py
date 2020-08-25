@@ -1,3 +1,5 @@
+import queue
+d=[[1,0],[0,1],[-1,0],[0,-1]]
 def bfs(maze,h,w,sy,sx,gy,gx):
     dist=[[-1 for _ in range(w)] for _ in range(h)]
     q=queue.deque([[sy,sx]])
